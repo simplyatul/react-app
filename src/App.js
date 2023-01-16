@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // Following is JSX - Java Script XML
   return (
     <div className="App">
       <header className="App-header">
