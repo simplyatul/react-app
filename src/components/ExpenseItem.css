@@ -1,0 +1,22 @@
+.expense-item {
+  display: flex;
+  align-items: center;
+}
+
+.expense-item__description {
+  display: flex;
+  align-items: flex-end
+}
+
+.expense-item__price {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  align-items: flex-end;
+}
+
+.expense-item h2 {
+  flex: 1;
+  color: white;
+  font-size: 1rem;
+}
