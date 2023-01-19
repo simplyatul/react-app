@@ -1,3 +1,8 @@
+# App Component Hierarchy
+![App Component Hierarchy](./App_Component_Hierarchy.jpg)
+
+# NOTE: Following content created by create-react-app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

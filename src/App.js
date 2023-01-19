@@ -42,10 +42,14 @@ const App = () => {
   //     console.log("fetched expenses: " + expenses);
   //   });
 
+  const newExpenseDataHandler = (enteredExpenseData) => {
+    console.log(enteredExpenseData);
+  };
+
   return (
     <div>
       <h2>{h2Hdr}</h2>
-      <NewExpense />
+      <NewExpense newExpensData={newExpenseDataHandler} />
       <Expenses item={expenses} />
     </div>
   );
