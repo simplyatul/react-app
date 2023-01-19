@@ -1,6 +1,7 @@
 # Ref/Credits
-https://youtu.be/F18Rxw6ftcM
-https://github.com/TechGun/React-ExpenseTracker
+
+- https://youtu.be/F18Rxw6ftcM
+- https://github.com/TechGun/React-ExpenseTracker
 
 # React JS Page Rendering Flow
 ![ReactJS Page Rendering](./ReactJS_Page_Rendering.jpg)
