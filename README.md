@@ -1,9 +1,3 @@
-# React JS Page Rendering Flow
-![ReactJS Page Rendering](./ReactJS_Page_Rendering.jpg)
-
-# App Component Hierarchy
-![App Component Hierarchy](./App_Component_Hierarchy.jpg)
-
 # NOTE: Following content created by create-react-app
 
 # Getting Started with Create React App
