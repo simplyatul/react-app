@@ -17,6 +17,30 @@ const ExpenseForm = (props) => {
     setDate(event.target.value);
   };
 
+  function fetchData(movieName) {
+    let api = "http://localhost:9009/v1/movies/" + movieName;
+    fetch(api)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.title);
+        const movieData = {
+          date: new Date(data.released),
+          title: data.title,
+          amount: data.description,
+        };
+        console.log("movieData: ", movieData);
+        props.onSaveExpenseData(movieData);
+      });
+  }
+
+  const getMovie = (event) => {
+    event.preventDefault();
+    console.log("In getMovie");
+    fetchData(title);
+  };
+
   const submitHandler = (event) => {
     event.preventDefault(); // avoid page to reload/refresh
 
@@ -37,12 +61,12 @@ const ExpenseForm = (props) => {
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label> Title</label>
+          <label> Movie Name</label>
           <input type="text" value={title} onChange={titleChangeHandler} />
         </div>
 
         <div className="new-expense__control">
-          <label> Amount</label>
+          <label> Movie Description</label>
           <input
             value={amount}
             type="number"
@@ -53,13 +77,17 @@ const ExpenseForm = (props) => {
         </div>
 
         <div className="new-expense__control">
-          <label> Date</label>
+          <label> Release Date</label>
           <input type="date" value={date} onChange={dateChangeHandler} />
         </div>
       </div>
 
+      <div className="new-expense__getmovie">
+        <button onClick={getMovie}>Get Movie</button>
+      </div>
+
       <div className="new-expense__actions">
-        <button type="submit"> Add Expense </button>
+        <button type="submit">Add Expense</button>
       </div>
     </form>
   );
