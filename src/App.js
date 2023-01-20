@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const DUMMY_DATA = [
-  {
-    id: "e1",
-    title: "Schoole Fee",
-    amount: 500,
-    date: new Date(2022, 1, 18),
-  },
+  // {
+  //   id: "e1",
+  //   title: "Schoole Fee",
+  //   amount: 500,
+  //   date: new Date(2022, 1, 18),
+  // },
   // {
   //   id: "e2",
   //   title: "Rent",

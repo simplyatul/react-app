@@ -18,15 +18,15 @@ const ExpenseForm = (props) => {
   };
 
   function fetchData(movieName) {
-    let api = "http://localhost:9009/v1/movies/" + movieName;
+    let api = "http://localhost:9009/demo/v1/movies/" + movieName;
     fetch(api)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.title);
+        console.log(data);
         const movieData = {
-          date: new Date(data.released),
+          date: new Date(data.released, 0),
           title: data.title,
           amount: data.description,
         };
@@ -87,7 +87,7 @@ const ExpenseForm = (props) => {
       </div>
 
       <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
+        <button type="submit">Add Movie</button>
       </div>
     </form>
   );
