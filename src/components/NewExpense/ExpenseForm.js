@@ -21,7 +21,15 @@ const ExpenseForm = (props) => {
     let api = "http://localhost:9009/demo/v1/movies/" + movieName;
     fetch(api)
       .then((response) => {
-        return response.json();
+        if (!response.ok) {
+          alert(
+            "Fetch movie request failed with error code: " + response.status
+          );
+          throw new Error("Not 2xx response", { cause: response });
+        } else {
+          console.log(response);
+          return response.json();
+        }
       })
       .then((data) => {
         console.log(data);
