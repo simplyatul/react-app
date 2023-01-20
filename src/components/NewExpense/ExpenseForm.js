@@ -25,7 +25,7 @@ const ExpenseForm = (props) => {
           alert(
             "Fetch movie request failed with error code: " + response.status
           );
-          throw new Error("Not 2xx response", { cause: response });
+          throw new Error("Get Movie: Non 2xx response", { cause: response });
         } else {
           console.log(response);
           return response.json();
@@ -49,20 +49,45 @@ const ExpenseForm = (props) => {
     fetchData(title);
   };
 
+  const saveMovie = (movie) => {
+    let api = "http://localhost:9009/demo/v1/movies/";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(movie),
+    };
+
+    fetch(api, options).then((response) => {
+      if (!response.ok) {
+        alert(
+          "Saving movie request failed with error code: " + response.status
+        );
+        throw new Error("Save Movie: Non 2xx response", { cause: response });
+      } else {
+        console.log(response);
+        alert(movie.title + " Movie Saved Successfully");
+        return response.json();
+      }
+    });
+  };
+
   const submitHandler = (event) => {
     event.preventDefault(); // avoid page to reload/refresh
 
-    const expenseData = {
+    const movieData = {
       title: title,
-      amount: amount,
-      date: new Date(date),
+      description: amount,
+      released: date,
     };
-    console.log(expenseData);
-    props.onSaveExpenseData(expenseData);
+    console.log(movieData);
+    saveMovie(movieData);
+    // props.onSaveExpenseData(expenseData);
 
-    setTitle("");
-    setAmount("");
-    setDate("");
+    // setTitle("");
+    // setAmount("");
+    // setDate("");
   };
 
   return (
@@ -74,19 +99,18 @@ const ExpenseForm = (props) => {
         </div>
 
         <div className="new-expense__control">
-          <label> Movie Description</label>
-          <input
-            value={amount}
-            type="number"
-            min="0.01"
-            step="0.01"
-            onChange={amountChangeHandler}
-          />
+          <label> Movie Description </label>
+          <input value={amount} type="text" onChange={amountChangeHandler} />
         </div>
 
         <div className="new-expense__control">
-          <label> Release Date</label>
-          <input type="date" value={date} onChange={dateChangeHandler} />
+          <label> Release Year </label>
+          <input
+            type="number"
+            value={date}
+            min="1000"
+            onChange={dateChangeHandler}
+          />
         </div>
       </div>
 
